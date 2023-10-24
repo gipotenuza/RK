@@ -3,12 +3,12 @@
 using namespace std;
 int main()
 {
-	int size;  //количество
+	int size;  //количество блюд
 	cout<< "Введите количество заказанных блюд: " << endl;
-	cin >> size;    //Ввод кол-ва блюд
-	char**names = new char*[size];  //Динамичесский масив для наименований
-	int*amount = new int[size];   //Динамичесский масив для кол-ва
-	double*prices = new double[size];   //Динамичесский масив для цен за единицу
+	cin >> size;    //Ввод количества блюд
+	char**names = new char*[size];  //Динамический массив для наименований
+	int*amount = new int[size];   //Динамический массив для количества
+	double*prices = new double[size];   //Динамический массив для цен за единицу
 	cin.ignore();   //Чистка буфера
 	for (int i = 0; i<size; ++i)     //Стандартная пробежка по масиву
 	{
@@ -43,11 +43,11 @@ int main()
 	{
 	    double c;
 	    double b;
-	    b = double(amount[i]);                        //изменение интового значения на дабл(дробное)
+	    b = double(amount[i]);                        //изменение целочисленного значения на дробное
 	    c = double(b*prices[i]);                      //вычисление общей суммы на одино блюдо
 	    sum += c;                                     //добавление этой суммы в переменную      
 	    sum1 += double(prices[i]);                    //сумма цен
-	    sum2 += double(amount[i]);                    //сумма кол-ва
+	    sum2 += double(amount[i]);                    //сумма количества
 	}
 	  
 	cout << "Общая сумма чека: " << sum << endl;
