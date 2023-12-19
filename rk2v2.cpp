@@ -37,8 +37,8 @@ public:
     }
     void setNew(const std::string& newName, const std::string& newSpecies) override {
         ElectronicDevice::setNew(newName, newSpecies);
-        this->wingspan *= 2;
     }
+    ~Bird() {};
 };
 
 class Mammal : public Animal {
