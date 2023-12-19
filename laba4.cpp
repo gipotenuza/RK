@@ -11,7 +11,6 @@ private:
 
 public:
 	CaloricInfo() {};
-
 	CaloricInfo(const int& calorii) : calorii(calorii) {};
 
 	const int& getCalorii() const {
@@ -23,7 +22,7 @@ public:
 	}
 
 	virtual void displayInfo() const {
-		cout « "Калорийность: " « calorii « endl;
+		cout << "РљР°Р»РѕСЂРёР№РЅРѕСЃС‚СЊ: " << calorii << endl;
 	}
 
 	~CaloricInfo() {};
@@ -36,11 +35,11 @@ public:
 	Pair(const T1& first, const T2& second) : first(first), second(second) {}
 
 	void displayPair() const {
-		std::cout « first « ": " « second « std::endl;
+		std::cout << first << ": " << second << std::endl;
 	}
 
 	void savePairToFile(std::ofstream& outFile) const {
-		outFile « first « " " « second « " ";
+		outFile << first << " " << second << " ";
 	}
 
 private:
@@ -59,9 +58,9 @@ public:
 	MenuItem(const string& name, const double& price, const string& type) : name(name), price(price), type(type) {};
 
 	virtual void displayInfo() const {
-		cout « "Название блюда: " « name « endl;
-		cout « "Стоимость: " « price « endl;
-		cout « "Вид: " « type « endl;
+		cout << "РќР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°: " << name << endl;
+		cout << "РЎС‚РѕРёРјРѕСЃС‚СЊ: " << price << endl;
+		cout << "Р’РёРґ: " << type << endl;
 	}
 
 	void setTitle(const string& newTitle) {
@@ -89,7 +88,7 @@ public:
 	}
 
 	void saveToFile(ofstream& outFile) const {
-		outFile « name « " | " « price « " | " « type « "\n";
+		outFile << name << " | " << price << " | " << type << "\n";
 	}
 
 	virtual ~MenuItem() {};
@@ -103,10 +102,10 @@ public:
 	Appetizer(const string& name, const double& price, const string& type, const string& type_appet) : MenuItem(name, price, type), type_appet(type_appet) {};
 
 	void displayInfo() const override {
-		cout « "Название блюда: " « name « endl;
-		cout « "Стоимость: " « price « endl;
-		cout « "Вид: " « type « endl;
-		cout « "Тип закуски: " « type_appet « endl;
+		cout << "РќР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°: " << name << endl;
+		cout << "РЎС‚РѕРёРјРѕСЃС‚СЊ: " << price << endl;
+		cout << "Р’РёРґ: " << type << endl;
+		cout << "РўРёРї Р·Р°РєСѓСЃРєРё: " << type_appet << endl;
 	}
 
 	~Appetizer() {};
@@ -119,10 +118,10 @@ public:
 	MainCourse(const string& name, const double& price, const string& type, const int& grammi) : MenuItem(name, price, type), grammi(grammi) {};
 
 	void displayInfo() const override {
-		cout « "Название блюда: " « name « endl;
-		cout « "Стоимость: " « price « endl;
-		cout « "Вид: " « type « endl;
-		cout « "Граммы: " « grammi « endl;
+		cout << "РќР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°: " << name << endl;
+		cout << "РЎС‚РѕРёРјРѕСЃС‚СЊ: " << price << endl;
+		cout << "Р’РёРґ: " << type << endl;
+		cout << "Р“СЂР°РјРјС‹: " << grammi << endl;
 	}
 
 	~MainCourse() {};
@@ -135,44 +134,45 @@ public:
 	Dessert(const string& name, const double& price, const string& type, const int& fat) : MenuItem(name, price, type), fat(fat) {};
 
 	void displayInfo() const override {
-		cout « "Название блюда: " « name « endl;
-		cout « "Стоимость: " « price « endl;
-		cout « "Вид: " « type « endl;
-		cout « "Жирность: " « fat « "%" « endl;
+		cout << "РќР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°: " << name << endl;
+		cout << "РЎС‚РѕРёРјРѕСЃС‚СЊ: " << price << endl;
+		cout << "Р’РёРґ: " << type << endl;
+		cout << "Р–РёСЂРЅРѕСЃС‚СЊ: " << fat << "%" << endl;
 	}
 
 	~Dessert() {};
 };
 
 void modifyBludo(MenuItem* bludo) {
-	cout « "Блюдо найдено. Что Вы хотите изменить?" « endl;
-	cout « "1) Название" « endl;
-	cout « "2) Стоимость" « endl;
-	cout « "3) Вид" « endl;
+	cout << "Р‘Р»СЋРґРѕ РЅР°Р№РґРµРЅРѕ. Р§С‚Рѕ Р’С‹ С…РѕС‚РёС‚Рµ РёР·РјРµРЅРёС‚СЊ?" << endl;
+	cout << "1) РќР°Р·РІР°РЅРёРµ" << endl;
+	cout << "2) РЎС‚РѕРёРјРѕСЃС‚СЊ" << endl;
+	cout << "3) Р’РёРґ" << endl;
 
 	int choice;
-	cin » choice;
+	cin >> choice;
 
 	switch (choice)
 	{
+
 	case 1: {
 		string newTitle;
-		cout « "Введите новое название блюда: " « endl;
-		cin » newTitle;
+		cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РЅР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°: " << endl;
+		cin >> newTitle;
 		bludo->setTitle(newTitle);
 		break;
 	}
 	case 2: {
 		double newPrice;
-		cout « "Введите новую стоимость блюда: " « endl;
-		cin » newPrice;
+		cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІСѓСЋ СЃС‚РѕРёРјРѕСЃС‚СЊ Р±Р»СЋРґР°: " << endl;
+		cin >> newPrice;
 		bludo->setPrice(newPrice);
 		break;
 	}
 	case 3: {
 		string newType;
-		cout « "Введите новый тип блюда: " « endl;
-		cin » newType;
+		cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ С‚РёРї Р±Р»СЋРґР°: " << endl;
+		cin >> newType;
 		bludo->setType(newType);
 		break;
 	}
@@ -182,8 +182,8 @@ void modifyBludo(MenuItem* bludo) {
 
 void saveBludaToFile(const vector<MenuItem*>& bluda, const string& filename) {
 	ofstream outFile(filename);
-	outFile « "Название | " « "Стоимость | " «
-		"Вид" « "\n";
+	outFile << "РќР°Р·РІР°РЅРёРµ | " << "РЎС‚РѕРёРјРѕСЃС‚СЊ | " <<
+		"Р’РёРґ" << "\n";
 	for (const auto* bludo : bluda) {
 		bludo->saveToFile(outFile);
 	}
@@ -198,78 +198,78 @@ int main()
 	int choice;
 
 	do {
-		cout « "Опции:" « endl;
-		cout « "1) Добавить блюдо" « endl;
-		cout « "2) Поиск блюда" « endl;
-		cout « "3) Сортировка блюд по цене" « endl;
-		cout « "4) Вывести все блюда" « endl;
-		cout « "5) Сохранить блюда в файл" « endl;
-		cout « "6) Изменить блюдо" « endl;
-		cout « "7) Выход" « endl;
+		cout << "РћРїС†РёРё:" << endl;
+		cout << "1) Р”РѕР±Р°РІРёС‚СЊ Р±Р»СЋРґРѕ" << endl;
+		cout << "2) РџРѕРёСЃРє Р±Р»СЋРґР°" << endl;
+		cout << "3) РЎРѕСЂС‚РёСЂРѕРІРєР° Р±Р»СЋРґ РїРѕ С†РµРЅРµ" << endl;
+		cout << "4) Р’С‹РІРµСЃС‚Рё РІСЃРµ Р±Р»СЋРґР°" << endl;
+		cout << "5) РЎРѕС…СЂР°РЅРёС‚СЊ Р±Р»СЋРґР° РІ С„Р°Р№Р»" << endl;
+		cout << "6) РР·РјРµРЅРёС‚СЊ Р±Р»СЋРґРѕ" << endl;
+		cout << "7) Р’С‹С…РѕРґ" << endl;
 
-		cout « "Введите ваш выбор: ";
-		cin » choice;
+		cout << "Р’РІРµРґРёС‚Рµ РІР°С€ РІС‹Р±РѕСЂ: ";
+		cin >> choice;
 
 		switch (choice)
 		{
-			// Добавление нового блюда
+			// Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ Р±Р»СЋРґР°
 		case 1: {
 			system("cls");
 			string name, type;
 			double price;
 			int bludo_choice;
 
-			cout « "Введите название блюда: " « endl;
-			cin » name;
-			cout « "Введите стоимость блюда: " « endl;
-			cin » price;
+			cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°: " << endl;
+			cin >> name;
+			cout << "Р’РІРµРґРёС‚Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ Р±Р»СЋРґР°: " << endl;
+			cin >> price;
 
-			cout « "Выберете вид блюда: " « endl;
-			cout « "1) Обычное" « endl;
-			cout « "2) Закуска" « endl;
-			cout « "3) Основное" « endl;
-			cout « "4) Десерт" « endl;
-			cin » bludo_choice;
+			cout << "Р’С‹Р±РµСЂРµС‚Рµ РІРёРґ Р±Р»СЋРґР°: " << endl;
+			cout << "1) РћР±С‹С‡РЅРѕРµ" << endl;
+			cout << "2) Р—Р°РєСѓСЃРєР°" << endl;
+			cout << "3) РћСЃРЅРѕРІРЅРѕРµ" << endl;
+			cout << "4) Р”РµСЃРµСЂС‚" << endl;
+			cin >> bludo_choice;
 			switch (bludo_choice)
 			{
 			case 1: {
-				type = "Обычное";
+				type = "РћР±С‹С‡РЅРѕРµ";
 				bluda.push_back(new MenuItem(name, price, type));
 				break;
 			}
 			case 2: {
-				type = "Закуска";
+				type = "Р—Р°РєСѓСЃРєР°";
 				string type_appet;
-				cout « "Введите вид закуски (холодная или горячая)" « endl;
-				cin » type_appet;
+				cout << "Р’РІРµРґРёС‚Рµ РІРёРґ Р·Р°РєСѓСЃРєРё (С…РѕР»РѕРґРЅР°СЏ РёР»Рё РіРѕСЂСЏС‡Р°СЏ)" << endl;
+				cin >> type_appet;
 				bluda.push_back(new Appetizer(name, price, type, type_appet));
 				break;
 			}
 			case 3: {
-				type = "Основное";
+				type = "РћСЃРЅРѕРІРЅРѕРµ";
 				int grammi;
-				cout « "Введите граммы основного блюда:" « endl;
-				cin » grammi;
+				cout << "Р’РІРµРґРёС‚Рµ РіСЂР°РјРјС‹ РѕСЃРЅРѕРІРЅРѕРіРѕ Р±Р»СЋРґР°:" << endl;
+				cin >> grammi;
 				bluda.push_back(new MainCourse(name, price, type, grammi));
 				break;
 			}
 			case 4: {
-				type = "Десерт";
+				type = "Р”РµСЃРµСЂС‚";
 				int fat;
-				cout « "Введите жирность десерта:" « endl;
-				cin » fat;
+				cout << "Р’РІРµРґРёС‚Рµ Р¶РёСЂРЅРѕСЃС‚СЊ РґРµСЃРµСЂС‚Р°:" << endl;
+				cin >> fat;
 				bluda.push_back(new Dessert(name, price, type, fat));
 				break;
 			}
 			}
 			break;
 		}
-			  // Поиск блюда
+			  // РџРѕРёСЃРє Р±Р»СЋРґР°
 		case 2: {
 			system("cls");
 			string title;
-			cout « "Введите название блюда, которое хотите найти: " « endl;
-			cin » title;
+			cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р±Р»СЋРґР°, РєРѕС‚РѕСЂРѕРµ С…РѕС‚РёС‚Рµ РЅР°Р№С‚Рё: " << endl;
+			cin >> title;
 			auto it = find_if(bluda.begin(), bluda.end(), [&](const MenuItem* bludo) {
 				return bludo->getTitle() == title;
 				});
@@ -278,16 +278,16 @@ int main()
 				(*it)->displayInfo();
 			}
 			else {
-				cout « "Блюдо не найдено" « endl;
+				cout << "Р‘Р»СЋРґРѕ РЅРµ РЅР°Р№РґРµРЅРѕ" << endl;
 			}
 			break;
 		}
-			  // Сортировка блюд по цене
+			  // РЎРѕСЂС‚РёСЂРѕРІРєР° Р±Р»СЋРґ РїРѕ С†РµРЅРµ
 		case 3: {
 			sort(begin(bluda), end(bluda), MenuItem::compareByPrice);
 			break;
 		}
-			  // Вывод всех блюд
+			  // Р’С‹РІРѕРґ РІСЃРµС… Р±Р»СЋРґ
 		case 4: {
 			system("cls");
 			for (const auto i : bluda) {
@@ -296,20 +296,20 @@ int main()
 			}
 			break;
 		}
-			  // Сохранение блюд в файл
+			  // РЎРѕС…СЂР°РЅРµРЅРёРµ Р±Р»СЋРґ РІ С„Р°Р№Р»
 		case 5: {
 			system("cls");
 			string filename;
-			cout « "Введите имя файла для сохранения: " « endl;
-			cin » filename;
+			cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ: " << endl;
+			cin >> filename;
 			saveBludaToFile(bluda, filename);
 			break;
 		}
 		case 6: {
 			system("cls");
 			string title;
-			cout « "Введите данные блюда для изменения:" « endl;
-			cin » title;
+			cout << "Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ Р±Р»СЋРґР° РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ:" << endl;
+			cin >> title;
 			auto it = find_if(bluda.begin(), bluda.end(), [&](const MenuItem* bludo) {
 				return bludo->getTitle() == title;
 				});
@@ -318,7 +318,7 @@ int main()
 				modifyBludo(*it);
 			}
 			else {
-				std::cout « "Блюдо не найдено." « std::endl;
+				std::cout << "Р‘Р»СЋРґРѕ РЅРµ РЅР°Р№РґРµРЅРѕ." << std::endl;
 			}
 			break;
 		}
@@ -326,7 +326,7 @@ int main()
 			break;
 		}
 	} while (choice != 7);
-
+	bluda.erase(bluda.begin(), bluda.end());
 	system("pause > nul");
 
 	return 0;
